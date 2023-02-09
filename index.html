@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up Form</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+      integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h2 class="t-center">Inscription</h2>
+      <form action="">
+        <div class="inputDiv">
+          <label for="name" class="username">Username</label>
+          <div class="userArea">
+            <i class="fa fa-user"></i>
+            <input
+              type="text"
+              name="name"
+              id="name"
+              placeholder="Entrez votre nom"
+            />
+            <i class="fa fa-check-circle"></i>
+            <i class="fa fa-exclamation"></i>
+            <small>Message d'erreur</small>
+          </div>
+          <hr />
+        </div>
+        <div class="inputDiv">
+          <label for="email" class="email">Email</label>
+          <div class="userArea">
+            <i class="fa fa-envelope"></i
+            ><input
+              type="text"
+              name="email"
+              id="email"
+              placeholder="Entrez votre email"
+            />
+          </div>
+          <hr />
+        </div>
+
+        <div class="inputDiv">
+          <label for="password" class="userPassword">Password</label>
+          <div class="userArea">
+            <i class="fa fa-key"></i
+            ><input
+              type="password"
+              name="password "
+              id="password"
+              placeholder="Entrez votre mot de passe"
+            />
+            <i id="toggle" class="fa fa-eye"></i>
+          </div>
+          <hr />
+        </div>
+
+        <div class="inputDiv">
+          <label for="password" class="userPassword">Confirm password</label>
+          <div class="userArea">
+            <i class="fa fa-key"></i
+            ><input
+              type="password"
+              name="password"
+              id="password2"
+              placeholder="Confirmez votre mot de passe"
+            />
+          </div>
+        </div>
+
+        <div id="strength-bar"></div>
+        <p id="msg"></p>
+        <button type="submit" class="btn">
+          <i class="fa fa-user-plus" aria-hidden="true"></i> S'inscrire
+        </button>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
