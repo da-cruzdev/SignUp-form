@@ -17,7 +17,7 @@
   <body>
     <div class="container">
       <h2 class="t-center">Inscription</h2>
-      <form action="">
+      <form id="form">
         <div class="inputDiv">
           <label for="name" class="username">Username</label>
           <div class="userArea">
@@ -28,14 +28,17 @@
               id="name"
               placeholder="Entrez votre nom"
             />
-            <i class="fa fa-check-circle"></i>
-            <i class="fa fa-exclamation"></i>
-            <small>Message d'erreur</small>
+            <div class="control">
+              <i class="fa fa-check-circle"></i>
+              <i class="fa fa-exclamation"></i>
+              <small>Message d'erreur</small>
+            </div>
           </div>
+
           <hr />
         </div>
         <div class="inputDiv">
-          <label for="email" class="email">Email</label>
+          <label for="email" class="username">Email</label>
           <div class="userArea">
             <i class="fa fa-envelope"></i
             ><input
@@ -44,12 +47,18 @@
               id="email"
               placeholder="Entrez votre email"
             />
+            <div class="control">
+              <i class="fa fa-check-circle"></i>
+              <i class="fa fa-exclamation"></i>
+              <small>Message d'erreur</small>
+            </div>
           </div>
+
           <hr />
         </div>
 
         <div class="inputDiv">
-          <label for="password" class="userPassword">Password</label>
+          <label for="password" class="username">Password</label>
           <div class="userArea">
             <i class="fa fa-key"></i
             ><input
@@ -58,13 +67,19 @@
               id="password"
               placeholder="Entrez votre mot de passe"
             />
+            <div class="control">
+              <i class="fa fa-check-circle"></i>
+              <i class="fa fa-exclamation"></i>
+              <small>Message d'erreur</small>
+            </div>
             <i id="toggle" class="fa fa-eye"></i>
           </div>
+
           <hr />
         </div>
 
         <div class="inputDiv">
-          <label for="password" class="userPassword">Confirm password</label>
+          <label for="password" class="username">Confirm password</label>
           <div class="userArea">
             <i class="fa fa-key"></i
             ><input
@@ -73,11 +88,16 @@
               id="password2"
               placeholder="Confirmez votre mot de passe"
             />
+            <div class="control">
+              <i class="fa fa-check-circle"></i>
+              <i class="fa fa-exclamation"></i>
+              <small>Message d'erreur</small>
+            </div>
           </div>
         </div>
 
-        <div id="strength-bar"></div>
-        <p id="msg"></p>
+        <!-- <div id="strength-bar"></div>
+        <p id="msg"></p> -->
         <button type="submit" class="btn">
           <i class="fa fa-user-plus" aria-hidden="true"></i> S'inscrire
         </button>

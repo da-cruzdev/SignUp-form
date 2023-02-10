@@ -2,15 +2,18 @@ const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
 const toggle = document.getElementById("toggle");
 const validateBtn = document.querySelector(".btn");
+const form = document.querySelector("#form");
+const username = document.querySelector("#name");
+const email = document.querySelector("#email");
+
+let strengthBar = document.getElementById("strength-bar");
+let msg = document.getElementById("msg");
 let parameters = {
   count: false,
   letters: false,
   numbers: false,
   special: false,
 };
-
-let strengthBar = document.getElementById("strength-bar");
-let msg = document.getElementById("msg");
 
 function showHidePassword() {
   if (password.type == "password") {
@@ -68,7 +71,94 @@ function strengthChecker() {
   }
 }
 
-password.addEventListener("input", strengthChecker);
-validateBtn.addEventListener("click", (e) => {
+/*password.addEventListener("input", strengthChecker);*/
+
+form.addEventListener("submit", (e) => {
   e.preventDefault();
+
+  formValidation();
 });
+
+function formValidation() {
+  const userValue = username.value.trim();
+  const emailValue = email.value.trim();
+  const passValue = password.value.trim();
+  const pass2Value = password2.value.trim();
+
+  if (userValue === "") {
+    let message = "Username ne peut pas être vide";
+
+    setError(username, message);
+  } else if (!userValue.match(/^[a-zA-Z]/)) {
+    let message = "Username doit commencer par une lettre";
+    setError(username, message);
+  } else {
+    let valueLength = userValue.length;
+    if (valueLength < 3) {
+      let message = "Username doit avoir au moins 3 caractères";
+      setError(username, message);
+    } else {
+      setSucces(username);
+    }
+  }
+
+  /* Verification de l'email */
+  if (emailValue === "") {
+    let message = "Email ne peut pas être vide";
+    setError(email, message);
+  } else if (!emailVerify(emailValue)) {
+    let message = "Email non valide";
+    setError(email, message);
+  } else {
+    setSucces(email);
+  }
+
+  /* Verification du mot de passe */
+  if (passValue === "") {
+    let message = "Password ne peut pas être vide";
+    setError(password, message);
+  } else if (!passwordVerify(passValue)) {
+    let message = "Password trop faible(8 à 12 caractères)";
+    setError(password, message);
+  } else if (passValue !== pass2Value) {
+    let message = "Les mots de passe ne correspondent pas";
+    setError(password, message);
+  } else {
+    setSucces(password);
+  }
+
+  if (pass2Value === "") {
+    let message = "Veuillez confirmer le mot de passe";
+    setError(password2, message);
+  } else if (pass2Value !== passValue) {
+    let message = "Les mots de passe ne correspondent pas";
+    setError(password2, message);
+  } else {
+    setSucces(password2);
+  }
+}
+
+function setError(element, message) {
+  const control = element.nextElementSibling;
+  const small = control.querySelector("small");
+  console.log(control);
+
+  small.innerText = message;
+  control.className = "control error";
+}
+
+function setSucces(element) {
+  const control = element.nextElementSibling;
+  control.className = "control success";
+}
+
+function emailVerify(email) {
+  const reg = /^[a-z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+  return reg.test(email);
+}
+
+function passwordVerify(password) {
+  const reg = /^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{8,12}$/;
+  const reg2 = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?!.*[^a-zA-Z\d@$!%*?&]).{8,}$/;
+  return reg2.test(password);
+}

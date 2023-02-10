@@ -40,19 +40,20 @@ body {
 .container form input {
   font-weight: lighter;
   border: none;
+  padding: 0.1rem;
 }
 input:focus {
   outline: none;
 }
 .container form .username {
-  margin-bottom: 0.7rem;
+  margin-bottom: 0.4rem;
 }
 .container form i {
   font-size: 1rem;
   margin-right: 0.5rem;
 }
 .userArea {
-  margin-bottom: 0.7rem;
+  position: relative;
 }
 .container form .forgotPassword {
   position: absolute;
@@ -64,7 +65,7 @@ input:focus {
 .inputDiv {
   display: flex;
   flex-direction: column;
-  padding-bottom: 0.8rem;
+  padding-bottom: 0.2rem;
 }
 .t-center {
   text-align: center;
@@ -75,21 +76,16 @@ input:focus {
   cursor: pointer;
   padding: 0.7rem 0.8rem;
   background: linear-gradient(to right, #8d68c5, #e34494);
-  margin-top: 2rem;
-  margin-bottom: 3rem;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
   color: #fff;
 }
-#signUp {
-  font-size: 1rem;
-  cursor: pointer;
-}
-#signUp:hover {
-  color: #8d68c5;
-}
+
 #toggle {
   cursor: pointer;
   position: absolute;
-  right: 1px;
+  right: -15px;
+  top: 4px;
 }
 #toggle:hover {
   color: gray;
@@ -100,7 +96,7 @@ input:focus {
   position: relative;
   height: 90%;
   bottom: 10px;
-  font-size: 1px;
+  font-size: 0.5px;
 }
 #strength-bar {
   background-color: #dcdcdc;
@@ -111,4 +107,34 @@ p {
   width: 100%;
   text-align: center;
   margin-top: 20px;
+}
+.control i {
+  position: absolute;
+  top: 3px;
+  right: 5px;
+  visibility: hidden;
+}
+.control small {
+  left: 0;
+  bottom: 0;
+  visibility: hidden;
+  position: relative;
+}
+.control.success i.fa-check-circle {
+  color: var(--color-succes);
+  visibility: visible;
+}
+.control.error i.fa-exclamation {
+  color: var(--color-error);
+  visibility: visible;
+}
+.control.error i.fa-exclamation {
+  color: var(--color-error);
+  visibility: visible;
+}
+.control.error small {
+  visibility: visible;
+  color: var(--color-error);
+  font-size: 12px;
+  font-weight: lighter;
 }
